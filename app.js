@@ -230,4 +230,5 @@ client.on('message', message => { //Message Event | Listener
     }
 });
 
-client.login('NDg4MDIxODM3NjI4OTY0ODY1.Dn1URQ.xo4ZGvSNjyjsYn83RZcfeJuXew8');
+client.login(process.env.BOT_TOKEN);
+//client.login('NDg4MDIxODM3NjI4OTY0ODY1.Dn1URQ.xo4ZGvSNjyjsYn83RZcfeJuXew8');
