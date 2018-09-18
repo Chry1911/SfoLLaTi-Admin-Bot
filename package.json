@@ -1,0 +1,23 @@
+{
+  "name": "SfoLLaTi-Admin-Bot",
+  "version": "1.0.0",
+  "description": "the discord bot of sfollati",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/synicalsyntax/discord.js-heroku.git"
+  },
+  "keywords": [
+    "heroku",
+    "discord.js"
+  ],
+  "author": "Christian Cortese",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/synicalsyntax/discord.js-heroku/issues"
+  },
+  "homepage": "https://github.com/synicalsyntax/discord.js-heroku#readme"
+}
