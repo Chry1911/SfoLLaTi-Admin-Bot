@@ -243,8 +243,6 @@ client.on('message', message => { //Message Event | Listener
     }
 });
 
-<<<<<<< HEAD
+
 client.login(process.env.BOT_TOKEN);
-=======
-client.login(process.env.BOT_TOKEN);
->>>>>>> 99f5f11f3eac36f63f64b98a1c40469a70759142
+
