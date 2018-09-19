@@ -15,19 +15,32 @@ client.on('ready', () => {
 });
 
 /**
-* Il primo evento serve per comunicare in chat generale chi � arrivato come nuovo utente.
+* Il primo evento serve per comunicare in chat generale chi è arrivato come nuovo utente.
 **/
 
 // Create an event listener for new guild members
 client.on('guildMemberAdd', member => {
   // Send the message to a designated channel on a server:
-  const channel = member.guild.channels.find(ch => ch.name === 'chat-community🌍');
+  const channel = member.guild.channels.find(ch => ch.name === '🌍chat_globale');
   // Do nothing if the channel wasn't found on this server
   if (!channel) return;
   // Send the message, mentioning the member
   channel.send(`Benvenuto negli SfoLLaTi, ${member}`);
+  member.addRole(member.guild.roles.find(role => role.name === "Utente non ancora del clan"));
 });
 
+
+/**
+* Questo evento server per communicare quando un utente lascia il clan
+**/
+client.on('guildMemberRemove', member =>{
+  // Send the message to a designated channel on a server:
+  const channel = member.guild.channels.find(ch => ch.name === '🌍chat_globale');
+  // Do nothing if the channel wasn't found on this server
+  if (!channel) return;
+  // Send the message, mentioning the member
+  channel.send(`Ci ha lasciato, e ha preso una padellata, ${member}`);
+})
 
 /**
 * Restituisce tutti i comandi disponibili del bot Admin Sfollati
@@ -48,7 +61,7 @@ client.on('message', message=> {
 			.addField('$unwarna', "Elimina i warn mandati allo user, si prega di menzionare lo user con @nome")
 			.addField('$banna', "Banna lo user dal server, si prega di menzionare lo user con @nome")
 			.addField('$kikka', "Kikka lo user fuori dal server, si prega di menzionare lo user con @nome")
-			.addField('$magic', "Comando per insultare magic, lui � sempre nei nostri pensieri, gli vogliamo bene")
+			.addField('$magic', "Comando per insultare magic, lui è sempre nei nostri pensieri, gli vogliamo bene")
 			.setFooter('Requested By ' + message.author.tag)
 			
 			message.channel.send(HelpCommand);
@@ -231,4 +244,3 @@ client.on('message', message => { //Message Event | Listener
 });
 
 client.login(process.env.BOT_TOKEN);
-//client.login('NDg4MDIxODM3NjI4OTY0ODY1.Dn1URQ.xo4ZGvSNjyjsYn83RZcfeJuXew8');
