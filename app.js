@@ -21,12 +21,12 @@ client.on('ready', () => {
 // Create an event listener for new guild members
 client.on('guildMemberAdd', member => {
   // Send the message to a designated channel on a server:
-  const channel = member.guild.channels.find(ch => ch.name === '♻entra_esci♻');
+  const channel = member.guild.channels.find(ch => ch.name === 'entra_esci');
   // Do nothing if the channel wasn't found on this server
   if (!channel) return;
   // Send the message, mentioning the member
   channel.send(`Benvenuto negli SfoLLaTi, ${member}`);
-  member.addRole(member.guild.roles.find(role => role.name === "Utente non ancora del clan"));
+  member.addRole(member.guild.roles.find(role => role.name === "Nuovo membro"));
 });
 
 
@@ -35,7 +35,7 @@ client.on('guildMemberAdd', member => {
 **/
 client.on('guildMemberRemove', member =>{
   // Send the message to a designated channel on a server:
-  const channel = member.guild.channels.find(ch => ch.name === '♻entra_esci♻');
+  const channel = member.guild.channels.find(ch => ch.name === 'entra_esci');
   // Do nothing if the channel wasn't found on this server
   if (!channel) return;
   // Send the message, mentioning the member
@@ -61,6 +61,7 @@ client.on('message', message=> {
 			.addField('$unwarna', "Elimina i warn mandati allo user, si prega di menzionare lo user con @nome")
 			.addField('$banna', "Banna lo user dal server, si prega di menzionare lo user con @nome")
 			.addField('$kikka', "Kikka lo user fuori dal server, si prega di menzionare lo user con @nome")
+      		.addField('$mention', "Manda un messaggio a tutti i moderatori e fondatori del server, mi raccomando di taggare il ruolo @FONDATORE @MODERATORE")
 			.addField('$magic', "Comando per insultare magic, lui è sempre nei nostri pensieri, gli vogliamo bene")
 			.setFooter('Requested By ' + message.author.tag)
 			
@@ -180,6 +181,30 @@ client.on('message', message => {
   }
 });
 
+
+/**
+* Contatta tutti i mod e founders del server
+**/
+client.on("message", message => {
+
+    if (message.content.startsWith(PREFIX + 'mention')) {
+    
+        
+
+        const myRole = message.guild.roles.find(role => role.name === "FONDATORE");
+        const myRole2 = message.guild.roles.find(role => role.name === "MODERATORE");
+
+        
+        for (const member of message.guild.members.values()) {
+		    if (member.roles.has(myRole.id || member.roles.has(myRole2.id))) {
+		        //member.user.send("Ho bisogno di voi, per un aiuto");
+		        member.user.send(`Ho bisogno di voi, per un aiuto, ${message.author}`);
+		    }
+		}
+
+    }
+});
+
 /**
 * Restituisce tutte le info dell'utente richieste
 **/
@@ -245,4 +270,5 @@ client.on('message', message => { //Message Event | Listener
 
 
 client.login(process.env.BOT_TOKEN);
+
 
