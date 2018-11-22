@@ -70,7 +70,7 @@ client.on('message', message=> {
 			.addField('$unwarna', "Elimina i warn mandati allo user, si prega di menzionare lo user con @nome")
 			.addField('$banna', "Banna lo user dal server, si prega di menzionare lo user con @nome")
 			.addField('$kikka', "Kikka lo user fuori dal server, si prega di menzionare lo user con @nome")
-      		.addField('$mention', "Manda un messaggio a tutti i moderatori e fondatori del server, mi raccomando di taggare il ruolo @FONDATORE @MODERATORE")
+      		.addField('$mention', "Manda un messaggio a tutti i moderatori e fondatori del server, mi raccomando di taggare il ruolo @FOUNDER @ADMIN")
       		.addField('$queue', "Comando per mettere in coda la musica, serve per creare la playlist, primo comando da eseguire")
       		.addField('$add', "Aggiunge una canzone alla playlist copiando url di youtube")
       		.addField('$play', "Comando per la musica, seguito da nome canzone per riprodurre il brano desiderato")
@@ -209,8 +209,8 @@ client.on("message", message => {
     
         
 
-        const myRole = message.guild.roles.find(role => role.name === "FONDATORE");
-        const myRole2 = message.guild.roles.find(role => role.name === "MODERATORE");
+        const myRole = message.guild.roles.find(role => role.name === "FOUNDER");
+        const myRole2 = message.guild.roles.find(role => role.name === "ADMIN");
 
         
         for (const member of message.guild.members.values()) {
