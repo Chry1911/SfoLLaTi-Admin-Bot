@@ -19,7 +19,7 @@ let queue = {};
 client.on('ready', () => {
   console.log('I am ready!');
   console.log('Connected');
-  console.log('Logged on the SfoLLaTi Discord Server');
+  console.log('Logged on the Discord Server');
   console.log('We moderate the people in this server');
 });
 
@@ -34,7 +34,7 @@ client.on('guildMemberAdd', member => {
   // Do nothing if the channel wasn't found on this server
   if (!channel) return;
   // Send the message, mentioning the member
-  channel.send(`Benvenuto negli SfoLLaTi, ${member}`);
+  channel.send(`Benvenuto nel nostro server, ${member}`);
   member.addRole(member.guild.roles.find(role => role.name === "Nuovo membro"));
 });
 
