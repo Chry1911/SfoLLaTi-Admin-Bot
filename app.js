@@ -1,5 +1,5 @@
-//Discord.js Version 12.0.0 MASTER
-//Npm Discord.js Package
+ //Discord.js Version 12.0.0 MASTER
+//Npm Discord.js Pakage
 const Discord = require('discord.js'); 
 const client = new Discord.Client();
 const moment = require("moment");
@@ -9,7 +9,8 @@ const apiYT = process.env.YT_API;
 const yt = require('ytdl-core');
 const binaries = require('ffmpeg-binaries');
 const ffmpeg = require('ffmpeg');
-
+//const opus = require('opusscript');
+//var opus = require('node-opus');
 
 
 let PREFIX = '$' //Prefix Can Be Any 
