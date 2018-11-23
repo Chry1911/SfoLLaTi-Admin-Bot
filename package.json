@@ -1,7 +1,7 @@
 {
-  "name": "SfoLLaTi-Admin_Bot",
-  "description": "admin bot of sfollati gaming clan",
-  "version": "3.0.0",
+  "name": "HND Bot V 4.0",
+  "description": "admin bot of heroes never die community",
+  "version": "4.0.0",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
