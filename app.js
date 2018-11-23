@@ -1,15 +1,15 @@
- //Discord.js Version 12.0.0 MASTER
-//Npm Discord.js Pakage
+//Discord.js Version 12.0.0 MASTER
+//Npm Discord.js Package
 const Discord = require('discord.js'); 
 const client = new Discord.Client();
 const moment = require("moment");
 const YouTube = require('simple-youtube-api');
-const apiYT = process.env.API_YT;
+
+const apiYT = process.env.YT_API;
 const yt = require('ytdl-core');
 const binaries = require('ffmpeg-binaries');
 const ffmpeg = require('ffmpeg');
-//const opus = require('opusscript');
-//var opus = require('node-opus');
+
 
 
 let PREFIX = '$' //Prefix Can Be Any 
@@ -19,7 +19,7 @@ let queue = {};
 client.on('ready', () => {
   console.log('I am ready!');
   console.log('Connected');
-  console.log('Logged on the Discord Server');
+  console.log('Logged on the HND Discord Server');
   console.log('We moderate the people in this server');
 });
 
@@ -80,11 +80,29 @@ client.on('message', message=> {
       		.addField('$np', "Comando per togliere la playlist")
       		.addField('$pause', "Comando per mettere in pausa la musica")
       		.addField('$resume', "Comando per la recuperare la musica")
-			.addField('$magic', "Comando per insultare magic, lui è sempre nei nostri pensieri, gli vogliamo bene")
+          .addField('$report', "Comando per reportare la condotta negativa di un utente")
+			
 			.setFooter('Requested By ' + message.author.tag)
 			
 			message.channel.send(HelpCommand);
 		}
+});
+
+
+/**
+* Comando per reportare l'utente scrivendo nella chat-blacklist
+**/
+
+client.on('message', message => {
+    if(!message.guild) return;
+
+    if(message.content.startsWith(PREFIX + 'report')){
+      const now = new Date();
+      const user = message.mentions.users.first();
+      const channel = client.channels.find("name", "🏴black-list🏴");
+
+      channel.send(`E' stato reportato l'utente, ` + user +  `in data:` + now);
+    }
 });
 
 /**
@@ -447,8 +465,6 @@ const commands = {
 }
 
 client.login(process.env.BOT_TOKEN);
-
-
 
 
 
