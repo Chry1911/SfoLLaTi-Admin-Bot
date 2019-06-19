@@ -25,7 +25,7 @@ client.on('ready', () => {
 
   console.log('Logged on the Sfollati Gaming Clan Discord Server');
 
-  console.log('Logged on the HND Discord Server');
+  
 
   console.log('We moderate the people in this server');
 });
@@ -92,6 +92,7 @@ client.on('message', message=> {
             .addField("$private", "Comando per mandare un messaggio privato a tutti gli utenti del server")
 
           .addField('$report', "Comando per reportare la condotta negativa di un utente")
+			.addField('$private', "Comando per mandare messaggio privato a tutti gli utenti del server")
 
 			
 			.setFooter('Requested By ' + message.author.tag)
@@ -258,10 +259,7 @@ client.on("message", message => {
         const myRole = message.guild.roles.find(role => role.name === "🔱 FONDATORE 🔱");
         const myRole2 = message.guild.roles.find(role => role.name === "🛡️ ADMIN 🛡️");
 
-        const myRole = message.guild.roles.find(role => role.name === "FOUNDER");
-        const myRole2 = message.guild.roles.find(role => role.name === "ADMIN");
-
-
+        
         
         for (const member of message.guild.members.values()) {
 		    if (member.roles.has(myRole.id || member.roles.has(myRole2.id))) {
