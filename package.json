@@ -1,7 +1,13 @@
 {
+<<<<<<< HEAD
   "name": "SGC Bot V 4.0",
   "description": "admin bot of sfollati gaming clan community",
   "version": "5.0.0",
+=======
+  "name": "SfoLLaTi-Admin_Bot",
+  "description": "admin bot of sfollati gaming clan",
+  "version": "4.0.0",
+>>>>>>> 938e8d2a63ce5d3676d912fdbcdca8b1a9522967
   "main": "app.js",
   "scripts": {
     "start": "node app.js"

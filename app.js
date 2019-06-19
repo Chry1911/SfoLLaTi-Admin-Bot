@@ -4,7 +4,11 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const moment = require("moment");
 const YouTube = require('simple-youtube-api');
+<<<<<<< HEAD
 //const apiYT = 'AIzaSyDN_vfEa-l5NOxgUlhEzc-oz_wCGJ7P7Hk';
+=======
+
+>>>>>>> 938e8d2a63ce5d3676d912fdbcdca8b1a9522967
 const apiYT = process.env.YT_API;
 const yt = require('ytdl-core');
 const binaries = require('ffmpeg-binaries');
@@ -20,7 +24,11 @@ let queue = {};
 client.on('ready', () => {
   console.log('I am ready!');
   console.log('Connected');
+<<<<<<< HEAD
   console.log('Logged on the Sfollati Gaming Clan Discord Server');
+=======
+  console.log('Logged on the HND Discord Server');
+>>>>>>> 938e8d2a63ce5d3676d912fdbcdca8b1a9522967
   console.log('We moderate the people in this server');
 });
 
@@ -81,8 +89,12 @@ client.on('message', message=> {
       		.addField('$np', "Comando per togliere la playlist")
       		.addField('$pause', "Comando per mettere in pausa la musica")
       		.addField('$resume', "Comando per la recuperare la musica")
+<<<<<<< HEAD
             .addField('$report', "Comando per reportare la condotta negativa di un utente")
             .addField("$private", "Comando per mandare un messaggio privato a tutti gli utenti del server")
+=======
+          .addField('$report', "Comando per reportare la condotta negativa di un utente")
+>>>>>>> 938e8d2a63ce5d3676d912fdbcdca8b1a9522967
 			
 			.setFooter('Requested By ' + message.author.tag)
 			
@@ -244,8 +256,13 @@ client.on("message", message => {
     
         
 
+<<<<<<< HEAD
         const myRole = message.guild.roles.find(role => role.name === "🔱 FONDATORE 🔱");
         const myRole2 = message.guild.roles.find(role => role.name === "🛡️ ADMIN 🛡️");
+=======
+        const myRole = message.guild.roles.find(role => role.name === "FOUNDER");
+        const myRole2 = message.guild.roles.find(role => role.name === "ADMIN");
+>>>>>>> 938e8d2a63ce5d3676d912fdbcdca8b1a9522967
 
         
         for (const member of message.guild.members.values()) {
