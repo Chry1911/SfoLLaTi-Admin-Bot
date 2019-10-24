@@ -1,12 +1,9 @@
- //Discord.js Version 12.0.0 MASTER
+  //Discord.js Version 12.0.0 MASTER
 //Npm Discord.js Pakage
 const Discord = require('discord.js'); 
 const client = new Discord.Client();
 const moment = require("moment");
 const YouTube = require('simple-youtube-api');
-
-//const apiYT = 'AIzaSyDN_vfEa-l5NOxgUlhEzc-oz_wCGJ7P7Hk';
-
 const apiYT = process.env.YT_API;
 const yt = require('ytdl-core');
 const binaries = require('ffmpeg-binaries');
@@ -22,11 +19,7 @@ let queue = {};
 client.on('ready', () => {
   console.log('I am ready!');
   console.log('Connected');
-
   console.log('Logged on the Sfollati Gaming Clan Discord Server');
-
-  
-
   console.log('We moderate the people in this server');
 });
 
@@ -87,12 +80,15 @@ client.on('message', message=> {
       		.addField('$np', "Comando per togliere la playlist")
       		.addField('$pause', "Comando per mettere in pausa la musica")
       		.addField('$resume', "Comando per la recuperare la musica")
-
             .addField('$report', "Comando per reportare la condotta negativa di un utente")
             .addField("$private", "Comando per mandare un messaggio privato a tutti gli utenti del server")
-
-          .addField('$report', "Comando per reportare la condotta negativa di un utente")
-			.addField('$private', "Comando per mandare messaggio privato a tutti gli utenti del server")
+            .addField("$R6", "Comando per scrivere un messaggio privato a tutti gli utenti r6 per invitarli ad accedere al server")
+            .addField("$Fortnite", "Comando per scrivere un messaggio privato a tutti gli utenti che giocano a Fortnite per invitarli ad accedere al server")
+            .addField("$Apex", "Comando per scrivere un messaggio privato a tutti gli utenti che giocano ad Apex per invitarli ad accedere al server")
+            .addField("$COD", "Comando per scrivere un messaggio privato a tutti gli utenti che giocano ad COD MW per invitarli ad accedere al server")
+            .addField("$TD2", "Comando per scrivere un messaggio privato a tutti gli utenti che giocano ad The Division per invitarli ad accedere al server")
+            .addField("$PUBG", "Comando per scrivere un messaggio privato a tutti gli utenti che giocano ad PUBG per invitarli ad accedere al server")
+            .addField("$Ghost", "Comando per scrivere un messaggio privato a tutti gli utenti che giocano ad Ghost Recon per invitarli ad accedere al server")
 
 			
 			.setFooter('Requested By ' + message.author.tag)
@@ -150,6 +146,147 @@ client.on('message', message => {
       if (member.id != client.user.id && !member.user.bot) member.send(text);
     });
   }
+});
+
+/**
+* Messaggio per tutti i player di R6
+**/
+client.on('message', message => { 
+	if(message.guild && message.content.startsWith(PREFIX + 'R6')){
+		let text = "Ciao abbiamo notato che sei classificato come giocatore di R6, che ne dici di venire a fare qualche partita con noi SGC? Ti aspettiamo in stanza";
+		const myRole = message.guild.roles.find(role => role.name === "R6S Player");
+
+		 for (const member of message.guild.members.values()) {
+		    if (member.roles.has(myRole.id)) {
+		        //member.user.send("Ho bisogno di voi, per un aiuto");
+		        if (member.id != client.user.id && !member.user.bot) member.send(text);
+		    }
+		}
+	}
+
+});
+
+/**
+* Messaggio per tutti i player di Fortnite
+**/
+client.on('message', message => { 
+	if(message.guild && message.content.startsWith(PREFIX + 'Fortnite')){
+		let text = "Ciao abbiamo notato che sei classificato come giocatore di Fortnite, che ne dici di venire a fare qualche partita con noi SGC? Ti aspettiamo in stanza";
+		const myRole = message.guild.roles.find(role => role.name === "Fortnite Player");
+
+		 for (const member of message.guild.members.values()) {
+		    if (member.roles.has(myRole.id)) {
+		        //member.user.send("Ho bisogno di voi, per un aiuto");
+		        if (member.id != client.user.id && !member.user.bot) member.send(text);
+		    }
+		}
+	}
+
+});
+
+/**
+* Messaggio per tutti i player di Apex
+**/
+client.on('message', message => { 
+	if(message.guild && message.content.startsWith(PREFIX + 'Apex')){
+		let text = "Ciao abbiamo notato che sei classificato come giocatore di Apex, che ne dici di venire a fare qualche partita con noi SGC? Ti aspettiamo in stanza";
+		const myRole = message.guild.roles.find(role => role.name === "Apex Player");
+
+		 for (const member of message.guild.members.values()) {
+		    if (member.roles.has(myRole.id)) {
+		        //member.user.send("Ho bisogno di voi, per un aiuto");
+		        if (member.id != client.user.id && !member.user.bot) member.send(text);
+		    }
+		}
+	}
+
+});
+
+/**
+* Messaggio per tutti i player di COD MW
+**/
+client.on('message', message => { 
+	if(message.guild && message.content.startsWith(PREFIX + 'COD')){
+		let text = "Ciao abbiamo notato che sei classificato come giocatore di COD MW, che ne dici di venire a fare qualche partita con noi SGC? Ti aspettiamo in stanza";
+		const myRole = message.guild.roles.find(role => role.name === "COD MW Player");
+
+		 for (const member of message.guild.members.values()) {
+		    if (member.roles.has(myRole.id)) {
+		        //member.user.send("Ho bisogno di voi, per un aiuto");
+		        if (member.id != client.user.id && !member.user.bot) member.send(text);
+		    }
+		}
+	}
+
+});
+
+/**
+* Messaggio per tutti i player di PUBG
+**/
+client.on('message', message => { 
+	if(message.guild && message.content.startsWith(PREFIX + 'PUBG')){
+		let text = "Ciao abbiamo notato che sei classificato come giocatore di PUBG, che ne dici di venire a fare qualche partita con noi SGC? Ti aspettiamo in stanza";
+		const myRole = message.guild.roles.find(role => role.name === "PUBG Player");
+
+		 for (const member of message.guild.members.values()) {
+		    if (member.roles.has(myRole.id)) {
+		        //member.user.send("Ho bisogno di voi, per un aiuto");
+		        if (member.id != client.user.id && !member.user.bot) member.send(text);
+		    }
+		}
+	}
+
+});
+
+/**
+* Messaggio per tutti i player di TD2
+**/
+client.on('message', message => { 
+	if(message.guild && message.content.startsWith(PREFIX + 'TD2')){
+		let text = "Ciao abbiamo notato che sei classificato come giocatore di The Division 2, che ne dici di venire a fare qualche partita con noi SGC? Ti aspettiamo in stanza";
+		const myRole = message.guild.roles.find(role => role.name === "TD2 Player");
+
+		 for (const member of message.guild.members.values()) {
+		    if (member.roles.has(myRole.id)) {
+		        //member.user.send("Ho bisogno di voi, per un aiuto");
+		        if (member.id != client.user.id && !member.user.bot) member.send(text);
+		    }
+		}
+	}
+
+});
+
+/**
+* Messaggio per tutti i player di Ghost Recon
+**/
+client.on('message', message => { 
+	if(message.guild && message.content.startsWith(PREFIX + 'Ghost')){
+		let text = "Ciao abbiamo notato che sei classificato come giocatore di Ghost Recon, che ne dici di venire a fare qualche partita con noi SGC? Ti aspettiamo in stanza";
+		const myRole = message.guild.roles.find(role => role.name === "Breakpoint Player");
+
+		 for (const member of message.guild.members.values()) {
+		    if (member.roles.has(myRole.id)) {
+		        //member.user.send("Ho bisogno di voi, per un aiuto");
+		        if (member.id != client.user.id && !member.user.bot) member.send(text);
+		    }
+		}
+	}
+
+});
+
+
+/**
+* Lista Spam messaggi per Pegasus_87
+**/
+
+client.on('message', message => {
+	if(message.guild && message.content.startsWith(PREFIX + 'spamma')){
+		let text = "Ciao Pegasus_87 vieni a fare ranked??????";
+		var i;
+		for(i = 0; i < 2000; i++){
+			client.users.get("IDUtente").send(text);
+		}
+	}
 });
 
 /**
@@ -259,7 +396,7 @@ client.on("message", message => {
         const myRole = message.guild.roles.find(role => role.name === "🔱 FONDATORE 🔱");
         const myRole2 = message.guild.roles.find(role => role.name === "🛡️ ADMIN 🛡️");
 
-        
+
         
         for (const member of message.guild.members.values()) {
 		    if (member.roles.has(myRole.id || member.roles.has(myRole2.id))) {
