@@ -16,5 +16,8 @@
     "request": "2.81.0",
     "simple-youtube-api": "^5.1.1",
     "ytdl-core": "^0.28.0"
+  },
+  engines": {
+    "node": "10.10.0"
   }
 }
