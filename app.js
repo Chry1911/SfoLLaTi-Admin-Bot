@@ -21,7 +21,12 @@ client.on('ready', () => {
   console.log('Connected');
   console.log('Logged on the Sfollati Gaming Clan Discord Server');
   console.log('We moderate the people in this server');
+  client.user.setActivity('Moderando il Server SGC', { type: 'PLAYING' });
+  client.user.setStatus('available');
 });
+
+
+
 
 /**
 * Il primo evento serve per comunicare in chat generale chi è arrivato come nuovo utente.
@@ -208,7 +213,7 @@ client.on('message', message => {
 client.on('message', message => { 
 	if(message.guild && message.content.startsWith(PREFIX + 'COD')){
 		let text = "Ciao abbiamo notato che sei classificato come giocatore di COD MW, che ne dici di venire a fare qualche partita con noi SGC? Ti aspettiamo in stanza";
-		const myRole = message.guild.roles.find(role => role.name === "COD MW Player");
+		const myRole = message.guild.roles.find(role => role.name === "COD MW player");
 
 		 for (const member of message.guild.members.values()) {
 		    if (member.roles.has(myRole.id)) {
@@ -416,59 +421,42 @@ client.on('message', message => { //Message Event | Listener
 
     if (message.content.startsWith(PREFIX + 'infoutente')) {
 		
-		let user;
-		// If the user mentions someone, display their stats. If they just run userinfo without mentions, it will show their own stats.
-		if (message.mentions.users.first) {
-		  user = message.mentions.users.first;
-		} /*else {
-			user = message.author;
-		}*/
-		// Define the member of a guild.
-		//const member = message.guild.member(user);
-		const member = message.mentions.users.first();
-        if(!member) return message.reply("Perfavore menziona un utente che fa parte del server");
 		
+		// If the user mentions someone, display their stats. If they just run userinfo without mentions, it will show their own stats.
+		const user = message.mentions.users.first();
 
-		const UserInfo = new Discord.RichEmbed()
+		if (user) {
+	      // Now we get the member from the user
+	      const member = message.guild.member(user);
+  		
 
-            
-            .setAuthor(message.author.username, message.author.avatarURL) //Heading With Username & Their Avatar 
-            .setTitle('InfoUtente')
-            .setURL('https://www.google.com') 
-            .setColor('RANDOM') 
-            .setImage(message.author.avatarURL) 
-            .setThumbnail(message.author.avatarURL) 
-            
+  			if(member){
 
-            
 
-            .addField('Avatar', message.author.avatar, true) //The ID of the user's avatar //Inline True or false
-           
-            .addField('Bot', message.author.bot, true) //Returns True If Message Author = Bot || False If Message Author not Bot.
-            .addField('Created At', message.author.createdAt, false) //The time the user was created || .createdTimestamp - The timestamp the user was created at
-            .addField('Discrim', message.author.discriminator, true) //A discriminator/tag based on username for the user Ex:- 0001
-            .addField('DMChannel', message.author.dmChannel) //The DM between the client's user and this user || If Nothing Returns "Null"
-            .addField('ID', message.author.id) //The ID of the User/author
-            .addField('Ultimo Messaggio', message.author.lastMessage) //The Message object of the last message sent by the user, if one was sent
-            .addField('ID Ultimo Messaggio', message.author.lastMessageID) //The ID of the last message sent by the user, if one was sent
-            .addField('Presenza', message.author.presence) //The presence of this user
-            .addField('Status Presenza', message.author.presence.status) //The presence status of this user
-            .addField('Presenza in gioco', message.author.presence.name) //The presence Game of this user
-            .addField('Tag', message.author.tag) //The Discord "tag" for this user || Ex:- Sai Chinna#6718
-            .addField('Username', message.author.username) //The username of the user || Ex:- Sai Chinna
-            .addField('Nick Name', message.guild.member.displayName) //Nick Name In That (message sent) server || Define target as message Author Ex:- let target = message.author; || Add This Line in Top
+        
+			        const embed = new Discord.RichEmbed()
+					    .setColor("RANDOM")
+					    .setThumbnail(message.author.avatarURL)
+					    .addField(`${user.tag}`, `${user}`, true)
+					    .addField("ID:", `${user.id}`, true)
+					    .addField("Nickname:", `${member.nickname !== null ? `${member.nickname}` : 'None'}`, true)
+					    .addField("Status:", `${user.presence.status}`, true)
+					    .addField("In Server", message.guild.name, true)
+					    .addField("Game:", `${user.presence.game ? user.presence.game.name : 'None'}`, true)
+					    .addField("Bot:", `${user.bot}`, true)
+					    .addField("Entrato nel Server il:", `${moment.utc(member.joinedAt).format("dddd, MMMM Do YYYY")}`, true)
+					    .addField("Account Creato il:", `${moment.utc(user.createdAt).format("dddd, MMMM Do YYYY")}`, true) 
+					    .addField("Ruoli:", member.roles.map(roles => `${roles}`).join(', '), true)
+					    .setFooter(`In risposta a: ${message.author.username}#${message.author.discriminator}`)
 
-            .setFooter('Requested By ' + message.author.tag) //Change To Anything As You Wish
-            .setTimestamp()
-            
-            
-			
-			
-			
-			
 
-        message.channel.send(UserInfo);
-    }
+					message.channel.send({embed});
+
+			}
+
+
+    	}
+	}
 });
 
 /*
@@ -632,6 +620,9 @@ const commands = {
 }
 
 client.login(process.env.BOT_TOKEN);
+
+
+
 
 
 
