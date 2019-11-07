@@ -1,4 +1,4 @@
-   //Discord.js Version 12.0.0 MASTER
+    //Discord.js Version 12.0.0 MASTER
 //Npm Discord.js Pakage
 const Discord = require('discord.js'); 
 const client = new Discord.Client();
@@ -87,7 +87,27 @@ client.on('message', message=> {
       		  .addField('$resume', "Comando per la recuperare la musica")
             .addField('$report', "Comando per reportare la condotta negativa di un utente")
             .addField("$private", "Comando per mandare un messaggio privato a tutti gli utenti del server")
-            .addField("$R6", "Comando per scrivere un messaggio privato a tutti gli utenti r6 per invitarli ad accedere al server")
+            .addField("$giochi", "Comando da invocare per vedere la lista dei comandi dei giochi")
+			
+			.setFooter('Requested By ' + message.author.tag)
+			
+			message.channel.send(HelpCommand);
+		}
+});
+
+/**
+* Restituisce tutti i comandi dei giochi
+**/
+
+client.on('message', message => {
+	if(message.content.startsWith(PREFIX + 'giochi')){
+		message.reply('Lista dei comandi dei giochi da usare per voi admin');
+		const HelpGames= new Discord.RichEmbed()
+		.setTitle('Help Games')
+		.setURL('https://www.google.com')
+		.setColor('RANDOM')
+
+		    .addField("$R6", "Comando per scrivere un messaggio privato a tutti gli utenti r6 per invitarli ad accedere al server")
             .addField("$Fortnite", "Comando per scrivere un messaggio privato a tutti gli utenti che giocano a Fortnite per invitarli ad accedere al server")
             .addField("$Apex", "Comando per scrivere un messaggio privato a tutti gli utenti che giocano ad Apex per invitarli ad accedere al server")
             .addField("$COD", "Comando per scrivere un messaggio privato a tutti gli utenti che giocano ad COD MW per invitarli ad accedere al server")
@@ -103,12 +123,14 @@ client.on('message', message=> {
             .addField("$Mexpubg", "Comando per mandare messaggio sulla chat di pubg")
             .addField("$Mexchat", "Comando per mandare messaggio sulla chat degli altri giochi")
 
+
+            .setFooter('Requested By ' + message.author.tag)
 			
-			.setFooter('Requested By ' + message.author.tag)
-			
-			message.channel.send(HelpCommand);
-		}
+			message.channel.send(HelpGames);
+	}
 });
+
+
 
 
 /**
@@ -757,6 +779,7 @@ const commands = {
 }
 
 client.login(process.env.BOT_TOKEN);
+
 
 
 
