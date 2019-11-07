@@ -1,4 +1,4 @@
-  //Discord.js Version 12.0.0 MASTER
+   //Discord.js Version 12.0.0 MASTER
 //Npm Discord.js Pakage
 const Discord = require('discord.js'); 
 const client = new Discord.Client();
@@ -66,25 +66,25 @@ client.on('message', message=> {
 			message.reply('Ciao Admin, se hai bisogno di me ti lascio la lista dei comandi.');
 			const HelpCommand = new Discord.RichEmbed()
 			
-			.setTitle('Help')
+			      .setTitle('Help')
             .setURL('https://www.google.com') 
             .setColor('RANDOM') 
 			
-			.addField('$infoutente', "Restituisce le info di un utente, si prega di menzionare lo user con  @nome")
-			.addField('$warna', "Manda un messaggio di warn allo user desiderato, si prega di menzionare lo user con  @nome e motivando la ragione")
-			.addField('$unwarna', "Elimina i warn mandati allo user, si prega di menzionare lo user con @nome")
-			.addField('$banna', "Banna lo user dal server, si prega di menzionare lo user con @nome")
-			.addField('$kikka', "Kikka lo user fuori dal server, si prega di menzionare lo user con @nome")
-      		.addField('$mention', "Manda un messaggio a tutti i moderatori e fondatori del server, mi raccomando di taggare il ruolo @FOUNDER @ADMIN")
-      		.addField('$queue', "Comando per mettere in coda la musica, serve per creare la playlist, primo comando da eseguire")
-      		.addField('$add', "Aggiunge una canzone alla playlist copiando url di youtube")
-      		.addField('$play', "Comando per la musica, seguito da nome canzone per riprodurre il brano desiderato")
-      		.addField('$skip', "Comando per la skippare la musica")
-      		.addField('$stop', "Comando per stoppare la musica")
-      		.addField('$volume', "Comando per il volume della musica")
-      		.addField('$np', "Comando per togliere la playlist")
-      		.addField('$pause', "Comando per mettere in pausa la musica")
-      		.addField('$resume', "Comando per la recuperare la musica")
+			      .addField('$infoutente', "Restituisce le info di un utente, si prega di menzionare lo user con  @nome")
+			      .addField('$warna', "Manda un messaggio di warn allo user desiderato, si prega di menzionare lo user con  @nome e motivando la ragione")
+			      .addField('$unwarna', "Elimina i warn mandati allo user, si prega di menzionare lo user con @nome")
+			      .addField('$banna', "Banna lo user dal server, si prega di menzionare lo user con @nome")
+			      .addField('$kikka', "Kikka lo user fuori dal server, si prega di menzionare lo user con @nome")
+      		  .addField('$mention', "Manda un messaggio a tutti i moderatori e fondatori del server, mi raccomando di taggare il ruolo @FOUNDER @ADMIN")
+      		  .addField('$queue', "Comando per mettere in coda la musica, serve per creare la playlist, primo comando da eseguire")
+      		  .addField('$add', "Aggiunge una canzone alla playlist copiando url di youtube")
+      		  .addField('$play', "Comando per la musica, seguito da nome canzone per riprodurre il brano desiderato")
+      		  .addField('$skip', "Comando per la skippare la musica")
+      		  .addField('$stop', "Comando per stoppare la musica")
+      		  .addField('$volume', "Comando per il volume della musica")
+      		  .addField('$np', "Comando per togliere la playlist")
+      		  .addField('$pause', "Comando per mettere in pausa la musica")
+      		  .addField('$resume', "Comando per la recuperare la musica")
             .addField('$report', "Comando per reportare la condotta negativa di un utente")
             .addField("$private", "Comando per mandare un messaggio privato a tutti gli utenti del server")
             .addField("$R6", "Comando per scrivere un messaggio privato a tutti gli utenti r6 per invitarli ad accedere al server")
@@ -94,6 +94,14 @@ client.on('message', message=> {
             .addField("$TD2", "Comando per scrivere un messaggio privato a tutti gli utenti che giocano ad The Division per invitarli ad accedere al server")
             .addField("$PUBG", "Comando per scrivere un messaggio privato a tutti gli utenti che giocano ad PUBG per invitarli ad accedere al server")
             .addField("$Ghost", "Comando per scrivere un messaggio privato a tutti gli utenti che giocano ad Ghost Recon per invitarli ad accedere al server")
+            .addField("$Mexr6", "Comando per mandare messaggio sulla chat di r6")
+            .addField("$Mexfortnite", "Comando per mandare messaggio sulla chat di fortnite")
+            .addField("$Mexghost", "Comando per mandare messaggio sulla chat di ghost recon")
+            .addField("$Mexcod", "Comando per mandare messaggio sulla chat di cod mw")
+            .addField("$Mexdivision", "Comando per mandare messaggio sulla chat di the division 2")
+            .addField("$Mexapex", "Comando per mandare messaggio sulla chat di apex legends")
+            .addField("$Mexpubg", "Comando per mandare messaggio sulla chat di pubg")
+            .addField("$Mexchat", "Comando per mandare messaggio sulla chat degli altri giochi")
 
 			
 			.setFooter('Requested By ' + message.author.tag)
@@ -136,6 +144,135 @@ client.on('message', message => {
 				userToSend.send(messageToSend);
 				message.channel.send("L'utente ha ricevuto un warn dal bot per inattivita'");
 		  }
+});
+
+/**
+* Messaggio automatico in chat-r6s
+**/
+
+client.on('message', message => {
+  if(!message.guild) return;
+
+    if (message.content.startsWith(PREFIX + 'Mexr6')){
+        const user = message.author;
+        const channel = client.channels.find("name", "chat-r6s");
+        const mex = "Qualcuno per fare ranked o libere su r6?";
+
+        channel.send(user + " " + mex);
+    }
+});
+
+/**
+* Messaggio automatico in chat-fortnite
+**/
+
+client.on('message', message => {
+  if(!message.guild) return;
+
+    if (message.content.startsWith(PREFIX + 'Mexfortnite')){
+        const user = message.author;
+        const channel = client.channels.find("name", "chat-fortnite");
+        const mex = "Qualcuno per fortnite??";
+
+        channel.send(user + " " + mex);
+    }
+});
+
+/**
+* Messaggio automatico in chat-ghost
+**/
+
+client.on('message', message => {
+  if(!message.guild) return;
+
+    if (message.content.startsWith(PREFIX + 'Mexghost')){
+        const user = message.author;
+        const channel = client.channels.find("name", "chat-ghost");
+        const mex = "Qualcuno per ghost recon??";
+
+        channel.send(user + " " + mex);
+    }
+});
+
+/**
+* Messaggio automatico in chat-cod-mw
+**/
+
+client.on('message', message => {
+  if(!message.guild) return;
+
+    if (message.content.startsWith(PREFIX + 'Mexcod')){
+        const user = message.author;
+        const channel = client.channels.find("name", "chat-cod-mw");
+        const mex = "Qualcuno per fare qualcosa su cod mw?";
+
+        channel.send(user + " " + mex);
+    }
+});
+
+/**
+* Messaggio automatico in chat-the-division-2
+**/
+
+client.on('message', message => {
+  if(!message.guild) return;
+
+    if (message.content.startsWith(PREFIX + 'Mexdivision')){
+        const user = message.author;
+        const channel = client.channels.find("name", "chat-the-division-2");
+        const mex = "Qualcuno per raid o darkzone o pve??";
+
+        channel.send(user + " " + mex);
+    }
+});
+
+
+/**
+* Messaggio automatico in chat-apex
+**/
+
+client.on('message', message => {
+  if(!message.guild) return;
+
+    if (message.content.startsWith(PREFIX + 'Mexapex')){
+        const user = message.author;
+        const channel = client.channels.find("name", "chat-apex");
+        const mex = "Qualcuno per ranked su Apex??";
+
+        channel.send(user + " " + mex);
+    }
+});
+
+/**
+* Messaggio automatico in chat-pubg
+**/
+
+client.on('message', message => {
+  if(!message.guild) return;
+
+    if (message.content.startsWith(PREFIX + 'Mexpubg')){
+        const user = message.author;
+        const channel = client.channels.find("name", "chat-pubg");
+        const mex = "Qualcuno per distruggere dei team su pubg?";
+
+        channel.send(user + " " + mex);
+    }
+});
+
+/**
+* Messaggio automatico in chat
+**/
+
+client.on('message', message => {
+  if(!message.guild) return;
+
+    if (message.content.startsWith(PREFIX + 'Mexchat')){
+        const user = message.author;
+        const channel = client.channels.find("name", "chat");
+        const mex = "Qualcuno per giocare a qualcos altro??";
+
+        channel.send(user + " " + mex);
+    }
 });
 
 
