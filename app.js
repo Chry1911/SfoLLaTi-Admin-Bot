@@ -305,7 +305,7 @@ client.on('message', message => {
 **/
 client.on('message', message => {
   if (message.guild && message.content.startsWith(PREFIX + 'private')) {
-    let text = "Ciao visto che sei nella nostra community collegati nelle stanze per socializzare, ti aspettiamo negli SGC :) ";
+    let text = "Ciao visto che sei nella nostra community Sfollati Gaming Clan, volevamo dirti che siamo in fase di rimodernazione server, se ti interessa giocare con noi, hai tempo 2 settimane per accedere alle stanze e riassegnarti i ruoli nella chat #ruoli-giochi, dopo di che verrai cacciato dal server. ";
     message.guild.members.forEach(member => {
       if (member.id != client.user.id && !member.user.bot) member.send(text);
     });
