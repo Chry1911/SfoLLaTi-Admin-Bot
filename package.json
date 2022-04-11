@@ -11,7 +11,7 @@
     "discord.js": "11.4.2",
     "ffmpeg": "0.0.4",
     "ffmpeg-binaries": "^4.0.0",
-    "moment": "^2.17.1",
+    "moment": "^2.29.2",
     "opusscript": "0.0.6",
     "request": "2.81.0",
     "simple-youtube-api": "^5.1.1",
